@@ -18,7 +18,7 @@ cd android/lineage
 export PATH="$(realpath .)/prebuilts/sdk/tools/linux/bin/:$PATH"
 repo init -u https://github.com/LineageOS/android.git -b lineage-23.1 --git-lfs --no-clone-bundle
 repo sync -j 8 # $(nproc)
-sed -i 's/-$(LINEAGE_BUILDTYPE)/-jqssun/g' vendor/lineage/config/version.mk
+# sed -i 's/-$(LINEAGE_BUILDTYPE)/-jqssun/g' vendor/lineage/config/version.mk
 
 source build/envsetup.sh
 export AB_OTA_UPDATER=false
