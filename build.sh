@@ -22,10 +22,10 @@ sed -i 's/-$(LINEAGE_BUILDTYPE)/-jqssun/g' vendor/lineage/config/version.mk
 
 source build/envsetup.sh
 export AB_OTA_UPDATER=false
-breakfast virtio_arm64only
+breakfast virtio_x86_64
 echo "$(jq '. += [{"repository": "android_kernel_mainline_configs", "target_path": "kernel/mainline/configs"}]' device/mainline/common/lineage.dependencies)" > device/mainline/common/lineage.dependencies
-breakfast virtio_arm64only userdebug
+breakfast virtio_x86_64 userdebug
 m recoveryimage
-mv out/target/product/virtio_arm64only/recovery.img ../../recovery-userdebug.img
-breakfast virtio_arm64only user # breakfast virtio_arm64only
-m vm-utm-zip otapackage
+mv out/target/product/virtio_x86_64/recovery.img ../../recovery-userdebug.img
+breakfast virtio_x86_64 user # breakfast virtio_x86_64
+m isoimage-install otapackage
